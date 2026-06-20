@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBCGD37LHX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FBCGD37LHX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Novu Media Co.</title>
+<style>
+:root{
+  --cyan:#00F5FF;--cyan2:#00C8FF;--cyan-dim:rgba(0,245,255,0.08);
+  --cyan-glow:rgba(0,245,255,0.25);--dark:#020408;--dark2:#05080F;
+  --dark3:#080D18;--dark4:#0C1220;--glass:rgba(0,245,255,0.04);
+  --glass-border:rgba(0,245,255,0.15);--white:#FFFFFF;--gray:#6B7A99;--light:#A0B4C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--white);font-family:'Segoe UI',system-ui,Arial,sans-serif;overflow-x:hidden;cursor:none;}
+#cursor{position:fixed;width:12px;height:12px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,opacity .2s;box-shadow:0 0 20px var(--cyan),0 0 40px var(--cyan-glow);}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(0,245,255,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .15s ease,width .2s,height .2s;}
+#stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,245,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.03) 1px,transparent 1px);background-size:60px 60px;}
+.scanlines{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,4,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .2s,text-shadow .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.nav-cta{background:transparent!important;border:1px solid var(--cyan)!important;color:var(--cyan)!important;padding:.45rem 1.2rem;border-radius:2px;text-shadow:0 0 10px var(--cyan)!important;box-shadow:0 0 15px rgba(0,245,255,.1);transition:box-shadow .2s,background .2s!important;}
+.nav-cta:hover{background:var(--cyan-dim)!important;box-shadow:0 0 25px rgba(0,245,255,.25)!important}
+section{position:relative;z-index:1;padding:100px 5%}
+.s-label{color:var(--cyan);font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:.8rem;text-shadow:0 0 10px rgba(0,245,255,.4);}
+.s-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem;}
+.s-sub{color:var(--light);font-size:1rem;max-width:540px;line-height:1.8}
+.s-head{margin-bottom:4rem}.s-head.c{text-align:center}.s-head.c .s-sub{margin:0 auto}
+.cyan-line{width:50px;height:2px;margin-bottom:1.2rem;background:linear-gradient(90deg,var(--cyan),var(--cyan2));box-shadow:0 0 10px var(--cyan);}
+.cyan-line.c{margin:0 auto 1.2rem}
+footer{position:relative;z-index:1;background:var(--dark);border-top:1px solid var(--glass-border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.f-logo{display:flex;align-items:center;}
+
+.f-links{display:flex;gap:2rem}
+.f-links a{color:var(--gray);text-decoration:none;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.f-links a:hover{color:var(--cyan)}
+.f-copy{font-size:.75rem;color:var(--gray);letter-spacing:.5px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.btn-neon{position:relative;background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;display:inline-block;border-radius:2px;text-shadow:0 0 10px var(--cyan);box-shadow:0 0 20px rgba(0,245,255,.1),inset 0 0 20px rgba(0,245,255,.03);transition:all .3s;overflow:hidden;}
+.btn-neon::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,245,255,.1),transparent);transition:left .4s;}
+.btn-neon:hover::before{left:100%}
+.btn-neon:hover{box-shadow:0 0 30px rgba(0,245,255,.3),inset 0 0 30px rgba(0,245,255,.08);background:rgba(0,245,255,.05);}
+.btn-neon-solid{background:var(--cyan);color:#000;font-weight:800;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;display:inline-block;border-radius:2px;box-shadow:0 0 30px rgba(0,245,255,.4);transition:all .3s;border:1px solid var(--cyan);}
+.btn-neon-solid:hover{box-shadow:0 0 50px rgba(0,245,255,.6);background:#00e5ef;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
+.glitch::before{color:#ff0080;clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);animation:glitch1 3s infinite linear;opacity:0;}
+.glitch::after{color:var(--cyan2);clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%);animation:glitch2 3s infinite linear .5s;opacity:0;}
+@keyframes glitch1{0%,89%,100%{transform:none;opacity:0}90%{transform:translate(-3px,1px);opacity:.8}92%{transform:translate(3px,-1px);opacity:.8}94%{transform:none;opacity:0}}
+@keyframes glitch2{0%,89%,100%{transform:none;opacity:0}90%{transform:translate(3px,1px);opacity:.8}92%{transform:translate(-3px,-1px);opacity:.8}94%{transform:none;opacity:0}}
+@media(max-width:900px){.nav-links{display:none}footer{flex-direction:column;text-align:center}.f-links{justify-content:center;flex-wrap:wrap}}
+
+#contact{background:var(--dark2);padding-top:140px;}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;max-width:1100px;margin:0 auto;align-items:start;}
+.c-info p{color:var(--light);font-size:.95rem;line-height:1.8;margin-bottom:2rem}
+.c-detail{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;font-size:.9rem;color:var(--light);}
+.c-det-icon{width:36px;height:36px;border-radius:4px;background:var(--cyan-dim);border:1px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.c-form{background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;padding:2.5rem;box-shadow:0 0 40px rgba(0,245,255,.04);}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-group{margin-bottom:1.2rem}
+.f-group label{display:block;font-size:.7rem;font-weight:700;color:var(--cyan);margin-bottom:.5rem;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 8px rgba(0,245,255,.3);}
+.f-group input,.f-group select,.f-group textarea{width:100%;background:rgba(0,0,0,.4);border:1px solid var(--glass-border);border-radius:3px;padding:.75rem 1rem;color:var(--white);font-size:.9rem;font-family:inherit;outline:none;transition:border-color .2s,box-shadow .2s;}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:var(--cyan);box-shadow:0 0 15px rgba(0,245,255,.1);}
+.f-group textarea{resize:vertical;min-height:110px}
+.f-group select option{background:#080D18}
+.f-submit{width:100%;background:var(--cyan);color:#000;border:none;padding:1rem;border-radius:3px;font-size:.85rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:inherit;box-shadow:0 0 30px rgba(0,245,255,.3);transition:box-shadow .2s,background .2s;margin-top:.5rem;}
+.f-submit:hover{box-shadow:0 0 50px rgba(0,245,255,.5);background:#00e5ef}
+#testi{background:var(--dark)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1100px;margin:0 auto;}
+.t-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:6px;padding:2rem;transition:border-color .3s,box-shadow .3s;}
+.t-card:hover{border-color:rgba(0,245,255,.3);box-shadow:0 0 30px rgba(0,245,255,.06);}
+.t-stars{color:var(--cyan);font-size:.9rem;letter-spacing:3px;margin-bottom:1rem;text-shadow:0 0 8px var(--cyan)}
+.t-quote{font-size:.88rem;color:var(--light);line-height:1.8;margin-bottom:1.5rem;font-style:italic}
+.t-author{display:flex;align-items:center;gap:.8rem}
+.t-av{width:40px;height:40px;border-radius:50%;border:1px solid var(--glass-border);background:var(--cyan-dim);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:var(--cyan);flex-shrink:0;box-shadow:0 0 10px rgba(0,245,255,.1);}
+.t-name{font-size:.88rem;font-weight:700}.t-biz{font-size:.75rem;color:var(--gray)}
+@media(max-width:900px){.contact-wrap,.testi-grid{grid-template-columns:1fr}.f-row{grid-template-columns:1fr}}
+</style>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<canvas id="stars"></canvas><div class="grid-overlay"></div>
+<div class="scanlines"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="novu-logo-official.png" alt="Novu Media Co." style="height:42px;width:auto;display:block;"></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html" class="nav-ctaactive">Contact</a></li></ul>
+</nav>
+<section id="testi">
+  <div class="s-head c">
+    <div class="s-label">Client Results</div>
+    <div class="cyan-line c"></div>
+    <h2 class="s-title">What Our Clients Say</h2>
+    <p class="s-sub">Real results for real local businesses across the Waterloo Region.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="t-card reveal"><div class="t-stars">★★★★★</div><p class="t-quote">"Novu Media transformed our Instagram from a dead account to our #1 source of new customers. 3x the followers and the phone was ringing every day within 60 days."</p><div class="t-author"><div class="t-av">JM</div><div><div class="t-name">James M.</div><div class="t-biz">Restaurant Owner, Cambridge ON</div></div></div></div>
+    <div class="t-card reveal"><div class="t-stars">★★★★★</div><p class="t-quote">"I was skeptical about social media for my trades business. Novu put together a strategy that made total sense and leads started coming within the first month."</p><div class="t-author"><div class="t-av">SR</div><div><div class="t-name">Sarah R.</div><div class="t-biz">Home Services, Kitchener ON</div></div></div></div>
+    <div class="t-card reveal"><div class="t-stars">★★★★★</div><p class="t-quote">"They don't waste your money on vanity metrics — they focus on what actually moves the needle. Game changer for our retail brand."</p><div class="t-author"><div class="t-av">DK</div><div><div class="t-name">David K.</div><div class="t-biz">Retail Brand, Waterloo ON</div></div></div></div>
+  </div>
+</section>
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="c-info reveal">
+      <div class="s-label">Contact Us</div>
+      <div class="cyan-line"></div>
+      <h2 class="s-title">Let's Build Something</h2>
+      <p>Fill out the form and we'll respond within 24 hours to schedule your free discovery call.</p>
+      <div class="c-detail"><div class="c-det-icon">📍</div>Cambridge &amp; Waterloo Region, Ontario</div>
+      <div class="c-detail"><div class="c-det-icon">📧</div>admin@novumediaco.ca</div>
+      <div class="c-detail"><div class="c-det-icon">⚡</div>Response within 24 hours</div>
+      <div class="c-detail"><div class="c-det-icon">📞</div>Free 30-min discovery call included</div>
+    </div>
+    <div class="c-form reveal">
+      <!-- ============================================================
+           FORMSPREE SETUP (one-time, 5 minutes):
+           1. Go to https://formspree.io and sign up (free)
+           2. Click "New Form", name it "Novu Media Contact"
+           3. Copy your form ID (looks like: xyzabcde)
+           4. Replace YOUR_FORM_ID below with that ID
+           5. Done — submissions go straight to admin@novumediaco.ca
+           ============================================================ -->
+      <form id="contact-form" action="https://formspree.io/f/xzdqqrrz" method="POST">
+        <!-- Hidden field: redirects user to a thank-you page after submit
+             (optional — remove the next line to stay on this page) -->
+        <input type="hidden" name="_next" value="https://novumediaco.ca/contact.html?sent=1">
+        <!-- Honeypot anti-spam field (hidden from humans, catches bots) -->
+        <input type="text" name="_gotcha" style="display:none">
+        <div class="f-row">
+          <div class="f-group"><label for="fname">First Name</label><input id="fname" type="text" name="first_name" placeholder="John" required></div>
+          <div class="f-group"><label for="lname">Last Name</label><input id="lname" type="text" name="last_name" placeholder="Smith" required></div>
+        </div>
+        <div class="f-group"><label for="biz">Business Name</label><input id="biz" type="text" name="business_name" placeholder="Your Business Name" required></div>
+        <div class="f-group"><label for="email">Email Address</label><input id="email" type="email" name="email" placeholder="you@yourbusiness.com" required></div>
+        <div class="f-group"><label for="phone">Phone Number</label><input id="phone" type="tel" name="phone" placeholder="(519) 000-0000"></div>
+        <div class="f-group"><label for="pkg">Package Interest</label>
+          <select id="pkg" name="package">
+            <option value="">— Select a Package —</option>
+            <option value="Starter - $499/mo">Starter — $499/mo</option>
+            <option value="Growth - $899/mo">Growth — $899/mo</option>
+            <option value="Premium - $1,499/mo">Premium — $1,499/mo</option>
+            <option value="Not sure yet">Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="f-group"><label for="msg">Tell Us About Your Business</label><textarea id="msg" name="message" placeholder="What does your business do? What are your main goals?"></textarea></div>
+        <button type="submit" class="f-submit" id="submit-btn">SEND MESSAGE &amp; BOOK MY CALL →</button>
+        <div id="form-success" style="display:none;margin-top:1rem;padding:1rem;background:rgba(0,200,106,.1);border:1px solid rgba(0,200,106,.4);border-radius:4px;color:#00C86A;text-align:center;font-size:.85rem;letter-spacing:1px;">
+          ✓ MESSAGE SENT — WE'LL BE IN TOUCH WITHIN 24 HOURS
+        </div>
+        <div id="form-error" style="display:none;margin-top:1rem;padding:1rem;background:rgba(255,50,50,.1);border:1px solid rgba(255,50,50,.3);border-radius:4px;color:#ff6b6b;text-align:center;font-size:.85rem;">
+          Something went wrong. Please email us directly at admin@novumediaco.ca
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<section style="padding:60px 20px;background:#f0f4ff;text-align:center;">
+  <h2 style="font-family:'Montserrat',sans-serif;font-size:2rem;color:#0a0a2e;margin-bottom:10px;">Book a Free Consultation</h2>
+  <p style="color:#555;margin-bottom:30px;">Schedule a no-obligation 30-minute strategy call with Novu Media Co.</p>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/admin-novumediaco/30min" style="min-width:320px;height:700px;"></div>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</section>
+<footer>
+  <div class="f-logo"><img src="novu-logo-official.png" alt="Novu Media Co." style="height:26px;width:auto;display:block;"></div>
+  <div class="f-links">
+    <a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+  </div>
+  <div class="f-copy">© 2026 Novu Media Co. · Cambridge, Ontario</div>
+</footer>
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='50px';ring.style.height='50px'});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px'});});
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
+const stars=Array.from({length:180},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,speed:Math.random()*.3+.05,opacity:Math.random()*.7+.1,flicker:Math.random()*Math.PI*2}));
+function drawConn(){for(let i=0;i<stars.length;i++){for(let j=i+1;j<stars.length;j++){const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.strokeStyle=`rgba(0,245,255,${(1-d/120)*.12})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(stars[i].x,stars[i].y);ctx.lineTo(stars[j].x,stars[j].y);ctx.stroke();}}}}
+let t=0;
+function animStars(){ctx.clearRect(0,0,W,H);t+=.01;stars.forEach(s=>{s.y-=s.speed;if(s.y<0){s.y=H;s.x=Math.random()*W;}const f=.7+.3*Math.sin(s.flicker+t*2);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(0,245,255,${s.opacity*f})`;ctx.fill();ctx.beginPath();ctx.arc(s.x,s.y,s.r*3,0,Math.PI*2);const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3);g.addColorStop(0,`rgba(0,245,255,${.08*f})`);g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fill();});drawConn();requestAnimationFrame(animStars);}animStars();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// Formspree AJAX submission — shows success/error without page reload
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  btn.textContent = 'SENDING...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.reset();
+      btn.style.display = 'none';
+      successMsg.style.display = 'block';
+      errorMsg.style.display = 'none';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch(err) {
+    btn.textContent = 'SEND MESSAGE & BOOK MY CALL →';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    errorMsg.style.display = 'block';
+    successMsg.style.display = 'none';
+  }
+});
+
+// Show success message if redirected back with ?sent=1
+if (window.location.search.includes('sent=1')) {
+  document.getElementById('submit-btn').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}</script>
+</body>
+</html>

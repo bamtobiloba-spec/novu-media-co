@@ -1,0 +1,18 @@
+<svg viewBox="0 0 500 132" width="500" xmlns="http://www.w3.org/2000/svg" style="background:#0D0618;" aria-label="Novu Media Co. logo — dark version">
+  <!-- Icon box (gold on dark) -->
+  <rect x="1" y="5" width="120" height="120" rx="9" fill="#C9981B" stroke="#C9981B" stroke-width="1.5"/>
+  <!-- N left vertical -->
+  <rect x="17" y="22" width="15" height="84" fill="#0D0618"/>
+  <!-- N right vertical -->
+  <rect x="90" y="22" width="15" height="84" fill="#0D0618"/>
+  <!-- N diagonal (deep purple) -->
+  <polygon points="32,22 50,22 90,106 72,106" fill="#2E0D6E"/>
+  <!-- Separator -->
+  <line x1="145" y1="16" x2="145" y2="116" stroke="#C9981B" stroke-width="1" opacity="0.3"/>
+  <!-- NOVU wordmark -->
+  <text x="162" y="80" font-family="Montserrat,'Arial Black',Arial,sans-serif" font-weight="900" font-size="52" fill="white" letter-spacing="6">NOVU</text>
+  <!-- Gold rule -->
+  <line x1="162" y1="91" x2="370" y2="91" stroke="#C9981B" stroke-width="0.8"/>
+  <!-- MEDIA CO. -->
+  <text x="163" y="109" font-family="Montserrat,Arial,sans-serif" font-weight="300" font-size="13" fill="#C9981B" letter-spacing="10">MEDIA CO.</text>
+</svg>

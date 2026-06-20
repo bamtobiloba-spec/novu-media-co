@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBCGD37LHX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FBCGD37LHX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Novu Media Co.</title>
+<style>
+:root{
+  --cyan:#00F5FF;--cyan2:#00C8FF;--cyan-dim:rgba(0,245,255,0.08);
+  --cyan-glow:rgba(0,245,255,0.25);--dark:#020408;--dark2:#05080F;
+  --dark3:#080D18;--dark4:#0C1220;--glass:rgba(0,245,255,0.04);
+  --glass-border:rgba(0,245,255,0.15);--white:#FFFFFF;--gray:#6B7A99;--light:#A0B4C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--white);font-family:'Segoe UI',system-ui,Arial,sans-serif;overflow-x:hidden;cursor:none;}
+#cursor{position:fixed;width:12px;height:12px;background:var(--cyan);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,opacity .2s;box-shadow:0 0 20px var(--cyan),0 0 40px var(--cyan-glow);}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(0,245,255,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .15s ease,width .2s,height .2s;}
+#stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,245,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.03) 1px,transparent 1px);background-size:60px 60px;}
+.scanlines{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,4,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .2s,text-shadow .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.nav-cta{background:transparent!important;border:1px solid var(--cyan)!important;color:var(--cyan)!important;padding:.45rem 1.2rem;border-radius:2px;text-shadow:0 0 10px var(--cyan)!important;box-shadow:0 0 15px rgba(0,245,255,.1);transition:box-shadow .2s,background .2s!important;}
+.nav-cta:hover{background:var(--cyan-dim)!important;box-shadow:0 0 25px rgba(0,245,255,.25)!important}
+section{position:relative;z-index:1;padding:100px 5%}
+.s-label{color:var(--cyan);font-size:.72rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;margin-bottom:.8rem;text-shadow:0 0 10px rgba(0,245,255,.4);}
+.s-title{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem;}
+.s-sub{color:var(--light);font-size:1rem;max-width:540px;line-height:1.8}
+.s-head{margin-bottom:4rem}.s-head.c{text-align:center}.s-head.c .s-sub{margin:0 auto}
+.cyan-line{width:50px;height:2px;margin-bottom:1.2rem;background:linear-gradient(90deg,var(--cyan),var(--cyan2));box-shadow:0 0 10px var(--cyan);}
+.cyan-line.c{margin:0 auto 1.2rem}
+footer{position:relative;z-index:1;background:var(--dark);border-top:1px solid var(--glass-border);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.f-logo{display:flex;align-items:center;}
+
+.f-links{display:flex;gap:2rem}
+.f-links a{color:var(--gray);text-decoration:none;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;transition:color .2s}
+.f-links a:hover{color:var(--cyan)}
+.f-copy{font-size:.75rem;color:var(--gray);letter-spacing:.5px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.btn-neon{position:relative;background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-weight:700;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;display:inline-block;border-radius:2px;text-shadow:0 0 10px var(--cyan);box-shadow:0 0 20px rgba(0,245,255,.1),inset 0 0 20px rgba(0,245,255,.03);transition:all .3s;overflow:hidden;}
+.btn-neon::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,245,255,.1),transparent);transition:left .4s;}
+.btn-neon:hover::before{left:100%}
+.btn-neon:hover{box-shadow:0 0 30px rgba(0,245,255,.3),inset 0 0 30px rgba(0,245,255,.08);background:rgba(0,245,255,.05);}
+.btn-neon-solid{background:var(--cyan);color:#000;font-weight:800;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;padding:.9rem 2.2rem;text-decoration:none;display:inline-block;border-radius:2px;box-shadow:0 0 30px rgba(0,245,255,.4);transition:all .3s;border:1px solid var(--cyan);}
+.btn-neon-solid:hover{box-shadow:0 0 50px rgba(0,245,255,.6);background:#00e5ef;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
+.glitch::before{color:#ff0080;clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);animation:glitch1 3s infinite linear;opacity:0;}
+.glitch::after{color:var(--cyan2);clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%);animation:glitch2 3s infinite linear .5s;opacity:0;}
+@keyframes glitch1{0%,89%,100%{transform:none;opacity:0}90%{transform:translate(-3px,1px);opacity:.8}92%{transform:translate(3px,-1px);opacity:.8}94%{transform:none;opacity:0}}
+@keyframes glitch2{0%,89%,100%{transform:none;opacity:0}90%{transform:translate(3px,1px);opacity:.8}92%{transform:translate(-3px,-1px);opacity:.8}94%{transform:none;opacity:0}}
+@media(max-width:900px){.nav-links{display:none}footer{flex-direction:column;text-align:center}.f-links{justify-content:center;flex-wrap:wrap}}
+
+#about{background:var(--dark2);padding-top:140px;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1200px;margin:0 auto;}
+.about-terminal{background:var(--dark3);border:1px solid var(--glass-border);border-radius:8px;overflow:hidden;box-shadow:0 0 40px rgba(0,245,255,.06);}
+.terminal-bar{background:var(--dark4);border-bottom:1px solid var(--glass-border);padding:.7rem 1rem;display:flex;align-items:center;gap:.5rem;}
+.t-dot{width:10px;height:10px;border-radius:50%}
+.t-dot.r{background:#FF5F57}.t-dot.y{background:#FEBC2E}.t-dot.g{background:#28C840}
+.terminal-title{font-size:.72rem;color:var(--gray);letter-spacing:1px;margin-left:.5rem;font-family:monospace;}
+.terminal-body{padding:1.5rem;font-family:'Consolas',monospace;font-size:.85rem;line-height:2}
+.t-prompt{color:var(--cyan)}.t-cmd{color:var(--white)}.t-out{color:#4ADE80;margin-left:1rem}.t-out.dim{color:var(--gray)}
+.t-cursor{display:inline-block;width:8px;height:1em;background:var(--cyan);animation:blink 1s step-end infinite;vertical-align:middle;}
+@keyframes blink{from,to{border-color:transparent}50%{border-color:var(--cyan)}}
+.about-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.a-tag{background:var(--glass);border:1px solid var(--glass-border);color:var(--cyan);font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:.4rem .9rem;border-radius:2px;box-shadow:0 0 8px rgba(0,245,255,.05);transition:box-shadow .2s,background .2s;}
+.a-tag:hover{background:var(--cyan-dim);box-shadow:0 0 15px rgba(0,245,255,.15)}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:3rem}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<canvas id="stars"></canvas><div class="grid-overlay"></div>
+<div class="scanlines"></div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="novu-logo-official.png" alt="Novu Media Co." style="height:42px;width:auto;display:block;"></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html" class="nav-cta">Contact</a></li></ul>
+</nav>
+<section id="about">
+  <div class="about-grid">
+    <div class="about-terminal reveal">
+      <div class="terminal-bar"><span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span><span class="terminal-title">novu_media_co — system.sh</span></div>
+      <div class="terminal-body">
+        <div><span class="t-prompt">$ </span><span class="t-cmd">novu --status</span></div>
+        <div class="t-out">✓ Agency: ONLINE</div>
+        <div class="t-out">✓ Location: Cambridge, Ontario</div>
+        <div class="t-out">✓ Status: Accepting Clients</div><br>
+        <div><span class="t-prompt">$ </span><span class="t-cmd">novu --services</span></div>
+        <div class="t-out">→ Social Media Management</div>
+        <div class="t-out">→ Content Creation</div>
+        <div class="t-out">→ Paid Advertising</div>
+        <div class="t-out">→ Brand Strategy &amp; Audit</div>
+        <div class="t-out">→ Reputation Management</div>
+        <div class="t-out">→ Email &amp; Lead Generation</div><br>
+        <div><span class="t-prompt">$ </span><span class="t-cmd">novu --promise</span></div>
+        <div class="t-out">"Results-first. Always."</div>
+        <div class="t-out dim">— Novu Media Co., 2026</div><br>
+        <div><span class="t-prompt">$ </span><span class="t-cursor"></span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="s-label">About Novu Media Co.</div>
+      <div class="cyan-line"></div>
+      <h2 class="s-title">Built for Businesses Ready to Be Seen</h2>
+      <p class="s-sub" style="margin-bottom:1.2rem">Novu Media Co. is a Cambridge, Ontario digital marketing agency giving small businesses the same firepower as the big brands — without the big agency price tag.</p>
+      <p class="s-sub" style="margin-bottom:1.2rem">We combine <strong style="color:#fff">content strategy, community management, paid advertising,</strong> and <strong style="color:#fff">brand storytelling</strong> into one system designed to grow your audience, generate leads, and convert followers into customers.</p>
+      <p class="s-sub">Strategy-first. Data-driven. Locally focused. Results obsessed.</p>
+      <div class="about-tags">
+        <span class="a-tag">No Fluff</span><span class="a-tag">Real Numbers</span><span class="a-tag">Local Experts</span>
+        <span class="a-tag">No Lock-In</span><span class="a-tag">1 Dedicated Manager</span><span class="a-tag">30-Day Action Plans</span>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="f-logo"><img src="novu-logo-official.png" alt="Novu Media Co." style="height:26px;width:auto;display:block;"></div>
+  <div class="f-links">
+    <a href="about.html">About</a><a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+  </div>
+  <div class="f-copy">© 2026 Novu Media Co. · Cambridge, Ontario</div>
+</footer>
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);}animRing();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='50px';ring.style.height='50px'});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px'});});
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
+const stars=Array.from({length:180},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,speed:Math.random()*.3+.05,opacity:Math.random()*.7+.1,flicker:Math.random()*Math.PI*2}));
+function drawConn(){for(let i=0;i<stars.length;i++){for(let j=i+1;j<stars.length;j++){const dx=stars[i].x-stars[j].x,dy=stars[i].y-stars[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.strokeStyle=`rgba(0,245,255,${(1-d/120)*.12})`;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(stars[i].x,stars[i].y);ctx.lineTo(stars[j].x,stars[j].y);ctx.stroke();}}}}
+let t=0;
+function animStars(){ctx.clearRect(0,0,W,H);t+=.01;stars.forEach(s=>{s.y-=s.speed;if(s.y<0){s.y=H;s.x=Math.random()*W;}const f=.7+.3*Math.sin(s.flicker+t*2);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(0,245,255,${s.opacity*f})`;ctx.fill();ctx.beginPath();ctx.arc(s.x,s.y,s.r*3,0,Math.PI*2);const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3);g.addColorStop(0,`rgba(0,245,255,${.08*f})`);g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fill();});drawConn();requestAnimationFrame(animStars);}animStars();
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

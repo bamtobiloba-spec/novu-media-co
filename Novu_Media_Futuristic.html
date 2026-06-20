@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBCGD37LHX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FBCGD37LHX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Novu Media Co. | Digital Marketing Agency</title>
+<style>
+:root{
+  --cyan:#00F5FF;
+  --cyan2:#00C8FF;
+  --cyan-dim:rgba(0,245,255,0.08);
+  --cyan-glow:rgba(0,245,255,0.25);
+  --gold:#C9A84C;
+  --dark:#020408;
+  --dark2:#05080F;
+  --dark3:#080D18;
+  --dark4:#0C1220;
+  --glass:rgba(0,245,255,0.04);
+  --glass-border:rgba(0,245,255,0.15);
+  --white:#FFFFFF;
+  --gray:#6B7A99;
+  --light:#A0B4C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--dark);
+  color:var(--white);
+  font-family:'Segoe UI',system-ui,Arial,sans-serif;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── CURSOR ── */
+#cursor{
+  position:fixed;width:12px;height:12px;
+  background:var(--cyan);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform 0.1s,opacity 0.2s;
+  box-shadow:0 0 20px var(--cyan),0 0 40px var(--cyan-glow);
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1px solid rgba(0,245,255,0.5);
+  border-radius:50%;pointer-events:none;
+  z-index:9998;transform:translate(-50%,-50%);
+  transition:transform 0.15s ease,width 0.2s,height 0.2s;
+}
+body:hover #cursor{opacity:1}
+
+/* ── CANVAS ── */
+#stars{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ── GRID OVERLAY ── */
+.grid-overlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(0,245,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,245,255,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 5%;height:70px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(2,4,8,0.8);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);
+}
+.nav-logo{display:flex;align-items:center;text-decoration:none;}
+
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  color:var(--gray);text-decoration:none;
+  font-size:0.82rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;transition:color 0.2s,text-shadow 0.2s;
+}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.nav-cta{
+  background:transparent !important;
+  border:1px solid var(--cyan) !important;
+  color:var(--cyan) !important;
+  padding:0.45rem 1.2rem;
+  border-radius:2px;
+  text-shadow:0 0 10px var(--cyan) !important;
+  box-shadow:0 0 15px rgba(0,245,255,0.1);
+  transition:box-shadow 0.2s,background 0.2s !important;
+}
+.nav-cta:hover{background:var(--cyan-dim) !important;box-shadow:0 0 25px rgba(0,245,255,0.25) !important}
+
+/* ── HERO ── */
+#hero{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:100px 5% 60px;
+  overflow:hidden;
+}
+.hero-scan{
+  position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  animation:scan 4s linear infinite;
+  opacity:0.6;
+}
+@keyframes scan{
+  0%{top:-2px}
+  100%{top:100%}
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  border:1px solid var(--glass-border);
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  color:var(--cyan);font-size:0.75rem;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;
+  padding:0.5rem 1.4rem;border-radius:2px;
+  margin-bottom:2.5rem;
+  box-shadow:0 0 20px rgba(0,245,255,0.08);
+  animation:fadeUp 0.8s ease forwards;opacity:0;
+}
+.badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 8px var(--cyan);
+  animation:pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+
+.hero-title{
+  font-size:clamp(3rem,7vw,6.5rem);
+  font-weight:900;letter-spacing:-2px;
+  line-height:1.0;margin-bottom:1rem;
+  animation:fadeUp 0.8s 0.2s ease forwards;opacity:0;
+}
+.hero-title .line1{display:block;color:var(--white)}
+.hero-title .line2{
+  display:block;color:var(--cyan);
+  text-shadow:0 0 30px rgba(0,245,255,0.5),0 0 60px rgba(0,245,255,0.2);
+  position:relative;
+}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{
+  content:attr(data-text);
+  position:absolute;top:0;left:0;width:100%;height:100%;
+}
+.glitch::before{
+  color:#ff0080;
+  clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);
+  animation:glitch1 3s infinite linear;
+  opacity:0;
+}
+.glitch::after{
+  color:var(--cyan2);
+  clip-path:polygon(0 60%,100% 60%,100% 80%,0 80%);
+  animation:glitch2 3s infinite linear 0.5s;
+  opacity:0;
+}
+@keyframes glitch1{
+  0%,89%,100%{transform:none;opacity:0}
+  90%{transform:translate(-3px,1px);opacity:0.8}
+  92%{transform:translate(3px,-1px);opacity:0.8}
+  94%{transform:none;opacity:0}
+}
+@keyframes glitch2{
+  0%,89%,100%{transform:none;opacity:0}
+  90%{transform:translate(3px,1px);opacity:0.8}
+  92%{transform:translate(-3px,-1px);opacity:0.8}
+  94%{transform:none;opacity:0}
+}
+
+.typewriter-wrap{
+  font-size:clamp(1rem,2vw,1.3rem);
+  color:var(--cyan);letter-spacing:1px;
+  min-height:2em;margin-bottom:2rem;
+  animation:fadeUp 0.8s 0.4s ease forwards;opacity:0;
+  font-weight:500;
+}
+.typewriter-prefix{color:var(--gray)}
+#tw{border-right:2px solid var(--cyan);padding-right:4px;animation:blink 0.75s step-end infinite}
+@keyframes blink{from,to{border-color:transparent}50%{border-color:var(--cyan)}}
+
+.hero-sub{
+  color:var(--light);font-size:1.05rem;
+  max-width:580px;margin:0 auto 3rem;
+  line-height:1.8;
+  animation:fadeUp 0.8s 0.6s ease forwards;opacity:0;
+}
+
+.hero-btns{
+  display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;
+  animation:fadeUp 0.8s 0.8s ease forwards;opacity:0;
+}
+
+.btn-neon{
+  position:relative;
+  background:transparent;
+  border:1px solid var(--cyan);
+  color:var(--cyan);
+  font-weight:700;font-size:0.9rem;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:0.9rem 2.2rem;
+  text-decoration:none;display:inline-block;
+  border-radius:2px;
+  text-shadow:0 0 10px var(--cyan);
+  box-shadow:0 0 20px rgba(0,245,255,0.1),inset 0 0 20px rgba(0,245,255,0.03);
+  transition:all 0.3s;overflow:hidden;
+}
+.btn-neon::before{
+  content:'';position:absolute;
+  top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(0,245,255,0.1),transparent);
+  transition:left 0.4s;
+}
+.btn-neon:hover::before{left:100%}
+.btn-neon:hover{
+  box-shadow:0 0 30px rgba(0,245,255,0.3),inset 0 0 30px rgba(0,245,255,0.08);
+  background:rgba(0,245,255,0.05);
+}
+
+.btn-neon-solid{
+  background:var(--cyan);color:#000;
+  font-weight:800;font-size:0.9rem;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:0.9rem 2.2rem;
+  text-decoration:none;display:inline-block;
+  border-radius:2px;
+  box-shadow:0 0 30px rgba(0,245,255,0.4);
+  transition:all 0.3s;border:1px solid var(--cyan);
+}
+.btn-neon-solid:hover{
+  box-shadow:0 0 50px rgba(0,245,255,0.6);
+  background:#00e5ef;
+}
+
+.hero-metrics{
+  display:flex;gap:0;margin-top:5rem;
+  border:1px solid var(--glass-border);
+  background:var(--glass);backdrop-filter:blur(12px);
+  border-radius:4px;overflow:hidden;
+  animation:fadeUp 0.8s 1s ease forwards;opacity:0;
+}
+.metric{
+  padding:1.5rem 2.5rem;text-align:center;
+  border-right:1px solid var(--glass-border);
+}
+.metric:last-child{border-right:none}
+.metric-val{
+  display:block;font-size:2rem;font-weight:900;
+  color:var(--cyan);line-height:1;
+  text-shadow:0 0 20px rgba(0,245,255,0.5);
+}
+.metric-label{
+  font-size:0.7rem;color:var(--gray);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-top:0.4rem;display:block;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ── SECTION BASE ── */
+section{position:relative;z-index:1;padding:100px 5%}
+.s-label{
+  color:var(--cyan);font-size:0.72rem;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;margin-bottom:0.8rem;
+  text-shadow:0 0 10px rgba(0,245,255,0.4);
+}
+.s-title{
+  font-size:clamp(2rem,4vw,3rem);font-weight:900;
+  letter-spacing:-1px;line-height:1.1;margin-bottom:1rem;
+}
+.s-sub{color:var(--light);font-size:1rem;max-width:540px;line-height:1.8}
+.s-head{margin-bottom:4rem}
+.s-head.c{text-align:center}
+.s-head.c .s-sub{margin:0 auto}
+.cyan-line{
+  width:50px;height:2px;margin-bottom:1.2rem;
+  background:linear-gradient(90deg,var(--cyan),var(--cyan2));
+  box-shadow:0 0 10px var(--cyan);
+}
+.cyan-line.c{margin:0 auto 1.2rem}
+
+/* ── ABOUT ── */
+#about{background:var(--dark2)}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;max-width:1200px;margin:0 auto;
+}
+.about-terminal{
+  background:var(--dark3);
+  border:1px solid var(--glass-border);
+  border-radius:8px;overflow:hidden;
+  box-shadow:0 0 40px rgba(0,245,255,0.06);
+}
+.terminal-bar{
+  background:var(--dark4);
+  border-bottom:1px solid var(--glass-border);
+  padding:0.7rem 1rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.t-dot{width:10px;height:10px;border-radius:50%}
+.t-dot.r{background:#FF5F57}.t-dot.y{background:#FEBC2E}.t-dot.g{background:#28C840}
+.terminal-title{
+  font-size:0.72rem;color:var(--gray);
+  letter-spacing:1px;margin-left:0.5rem;font-family:monospace;
+}
+.terminal-body{padding:1.5rem;font-family:'Consolas',monospace;font-size:0.85rem;line-height:2}
+.t-prompt{color:var(--cyan)}
+.t-cmd{color:var(--white)}
+.t-out{color:#4ADE80;margin-left:1rem}
+.t-out.dim{color:var(--gray)}
+.t-cursor{
+  display:inline-block;width:8px;height:1em;
+  background:var(--cyan);
+  animation:blink 1s step-end infinite;
+  vertical-align:middle;
+}
+
+.about-content .s-sub{max-width:none;margin-bottom:1.5rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:2rem}
+.a-tag{
+  background:var(--glass);border:1px solid var(--glass-border);
+  color:var(--cyan);font-size:0.75rem;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:0.4rem 0.9rem;border-radius:2px;
+  box-shadow:0 0 8px rgba(0,245,255,0.05);
+  transition:box-shadow 0.2s,background 0.2s;
+}
+.a-tag:hover{background:var(--cyan-dim);box-shadow:0 0 15px rgba(0,245,255,0.15)}
+
+/* ── SERVICES ── */
+#services{background:var(--dark)}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;max-width:1200px;margin:0 auto;
+}
+.svc-card{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:6px;padding:2rem;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;
+  cursor:default;
+}
+.svc-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.svc-card::after{
+  content:'';position:absolute;
+  bottom:-40px;right:-40px;
+  width:100px;height:100px;
+  background:radial-gradient(circle,rgba(0,245,255,0.08) 0%,transparent 70%);
+  transition:all 0.3s;
+}
+.svc-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(0,245,255,0.4);
+  box-shadow:0 20px 60px rgba(0,245,255,0.1),0 0 30px rgba(0,245,255,0.05);
+}
+.svc-card:hover::before{opacity:1}
+.svc-card:hover::after{bottom:-20px;right:-20px;width:140px;height:140px}
+
+.svc-num{
+  font-size:0.7rem;font-weight:700;letter-spacing:3px;
+  color:var(--gray);margin-bottom:1rem;font-family:monospace;
+}
+.svc-icon{
+  font-size:2rem;margin-bottom:1rem;display:block;
+  filter:drop-shadow(0 0 8px rgba(0,245,255,0.3));
+}
+.svc-title{
+  font-size:1.05rem;font-weight:800;
+  color:var(--white);margin-bottom:0.7rem;letter-spacing:0.5px;
+}
+.svc-desc{font-size:0.87rem;color:var(--light);line-height:1.7;margin-bottom:1.2rem}
+.svc-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.stag{
+  font-size:0.68rem;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--cyan);background:var(--cyan-dim);
+  border:1px solid rgba(0,245,255,0.15);
+  padding:0.2rem 0.6rem;border-radius:2px;
+}
+
+/* ── PRICING ── */
+#pricing{background:var(--dark2)}
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;max-width:1100px;margin:0 auto;align-items:start;
+}
+.p-card{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:6px;padding:2.5rem 2rem;
+  position:relative;transition:transform 0.3s,box-shadow 0.3s;
+}
+.p-card:hover{transform:translateY(-5px)}
+.p-card.feat{
+  border-color:var(--cyan);
+  box-shadow:0 0 40px rgba(0,245,255,0.12),inset 0 0 40px rgba(0,245,255,0.02);
+  background:rgba(0,245,255,0.04);
+  transform:scale(1.03);
+}
+.p-card.feat:hover{transform:scale(1.03) translateY(-5px)}
+.feat-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--cyan);color:#000;
+  font-size:0.65rem;font-weight:900;letter-spacing:2px;
+  text-transform:uppercase;padding:0.3rem 1.2rem;border-radius:2px;
+  white-space:nowrap;
+  box-shadow:0 0 20px rgba(0,245,255,0.5);
+}
+.p-tier{
+  font-size:0.7rem;font-weight:700;letter-spacing:3px;
+  color:var(--cyan);text-transform:uppercase;margin-bottom:0.4rem;
+  text-shadow:0 0 8px rgba(0,245,255,0.4);
+}
+.p-desc{font-size:0.85rem;color:var(--gray);margin-bottom:1.5rem;line-height:1.6}
+.p-price{
+  padding-bottom:1.5rem;margin-bottom:1.5rem;
+  border-bottom:1px solid var(--glass-border);
+}
+.p-amt{font-size:3rem;font-weight:900;color:var(--white);line-height:1}
+.p-cur{font-size:1.4rem;font-weight:700;color:var(--cyan);vertical-align:top;margin-top:0.5rem;display:inline-block}
+.p-per{font-size:0.8rem;color:var(--gray);margin-top:0.4rem}
+.p-features{list-style:none;margin-bottom:2rem}
+.p-features li{
+  display:flex;align-items:flex-start;gap:0.7rem;
+  font-size:0.88rem;color:var(--light);
+  margin-bottom:0.75rem;line-height:1.4;
+}
+.p-check{color:var(--cyan);font-size:0.75rem;flex-shrink:0;margin-top:2px;text-shadow:0 0 8px var(--cyan)}
+.p-btn{
+  display:block;text-align:center;padding:0.85rem;
+  font-size:0.82rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;text-decoration:none;
+  border-radius:2px;transition:all 0.2s;border:1px solid var(--cyan);
+  color:var(--cyan);background:transparent;
+  text-shadow:0 0 8px rgba(0,245,255,0.3);
+}
+.p-btn:hover{background:var(--cyan-dim);box-shadow:0 0 20px rgba(0,245,255,0.15)}
+.p-btn.solid{background:var(--cyan);color:#000;text-shadow:none;box-shadow:0 0 25px rgba(0,245,255,0.4)}
+.p-btn.solid:hover{box-shadow:0 0 40px rgba(0,245,255,0.6);background:#00e5ef}
+
+/* ── PROCESS ── */
+#process{background:var(--dark)}
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2rem;max-width:1100px;margin:0 auto;
+  position:relative;
+}
+.process-grid::before{
+  content:'';position:absolute;
+  top:30px;left:12%;right:12%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--cyan),transparent);
+  opacity:0.2;
+}
+.proc-step{text-align:center;position:relative}
+.proc-num{
+  width:60px;height:60px;border-radius:50%;
+  border:1px solid var(--cyan);
+  background:var(--glass);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:900;color:var(--cyan);
+  margin:0 auto 1.2rem;position:relative;z-index:1;
+  box-shadow:0 0 20px rgba(0,245,255,0.15);
+  font-family:monospace;
+}
+.proc-title{font-size:0.95rem;font-weight:800;margin-bottom:0.5rem;letter-spacing:0.5px}
+.proc-desc{font-size:0.82rem;color:var(--gray);line-height:1.7}
+
+/* ── TESTIMONIALS ── */
+#testi{background:var(--dark2)}
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;max-width:1100px;margin:0 auto;
+}
+.t-card{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:6px;padding:2rem;
+  transition:border-color 0.3s,box-shadow 0.3s;
+}
+.t-card:hover{
+  border-color:rgba(0,245,255,0.3);
+  box-shadow:0 0 30px rgba(0,245,255,0.06);
+}
+.t-stars{color:var(--cyan);font-size:0.9rem;letter-spacing:3px;margin-bottom:1rem;text-shadow:0 0 8px var(--cyan)}
+.t-quote{font-size:0.88rem;color:var(--light);line-height:1.8;margin-bottom:1.5rem;font-style:italic}
+.t-author{display:flex;align-items:center;gap:0.8rem}
+.t-av{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--glass-border);
+  background:var(--cyan-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85rem;font-weight:800;color:var(--cyan);flex-shrink:0;
+  box-shadow:0 0 10px rgba(0,245,255,0.1);
+}
+.t-name{font-size:0.88rem;font-weight:700}
+.t-biz{font-size:0.75rem;color:var(--gray)}
+
+/* ── CTA STRIP ── */
+#cta-strip{
+  position:relative;z-index:1;
+  padding:100px 5%;text-align:center;
+  background:var(--dark);overflow:hidden;
+}
+#cta-strip::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(0,245,255,0.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.cta-title{
+  font-size:clamp(2.2rem,5vw,4rem);
+  font-weight:900;letter-spacing:-1px;
+  line-height:1.1;margin-bottom:1.2rem;position:relative;
+}
+.cta-sub{color:var(--light);font-size:1.05rem;margin-bottom:3rem;position:relative}
+
+/* ── CONTACT ── */
+#contact{background:var(--dark2)}
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1.5fr;
+  gap:5rem;max-width:1100px;margin:0 auto;align-items:start;
+}
+.c-info p{color:var(--light);font-size:0.95rem;line-height:1.8;margin-bottom:2rem}
+.c-detail{
+  display:flex;align-items:center;gap:0.8rem;
+  margin-bottom:1rem;font-size:0.9rem;color:var(--light);
+}
+.c-det-icon{
+  width:36px;height:36px;border-radius:4px;
+  background:var(--cyan-dim);border:1px solid var(--glass-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;flex-shrink:0;
+}
+.c-form{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:8px;padding:2.5rem;
+  box-shadow:0 0 40px rgba(0,245,255,0.04);
+}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-group{margin-bottom:1.2rem}
+.f-group label{
+  display:block;font-size:0.7rem;font-weight:700;
+  color:var(--cyan);margin-bottom:0.5rem;
+  letter-spacing:2px;text-transform:uppercase;
+  text-shadow:0 0 8px rgba(0,245,255,0.3);
+}
+.f-group input,.f-group select,.f-group textarea{
+  width:100%;
+  background:rgba(0,0,0,0.4);
+  border:1px solid var(--glass-border);
+  border-radius:3px;padding:0.75rem 1rem;
+  color:var(--white);font-size:0.9rem;
+  font-family:inherit;outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 15px rgba(0,245,255,0.1);
+}
+.f-group textarea{resize:vertical;min-height:110px}
+.f-group select option{background:#080D18}
+.f-submit{
+  width:100%;background:var(--cyan);color:#000;
+  border:none;padding:1rem;border-radius:3px;
+  font-size:0.85rem;font-weight:900;
+  letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;font-family:inherit;
+  box-shadow:0 0 30px rgba(0,245,255,0.3);
+  transition:box-shadow 0.2s,background 0.2s;margin-top:0.5rem;
+}
+.f-submit:hover{box-shadow:0 0 50px rgba(0,245,255,0.5);background:#00e5ef}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:1;
+  background:var(--dark);
+  border-top:1px solid var(--glass-border);
+  padding:2rem 5%;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.f-logo{display:flex;align-items:center;}
+
+.f-links{display:flex;gap:2rem}
+.f-links a{color:var(--gray);text-decoration:none;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
+.f-links a:hover{color:var(--cyan)}
+.f-copy{font-size:0.75rem;color:var(--gray);letter-spacing:0.5px}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── SCANLINES ── */
+.scanlines{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,transparent,transparent 2px,
+    rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px
+  );
+}
+
+@media(max-width:900px){
+  .about-grid,.contact-wrap{grid-template-columns:1fr;gap:3rem}
+  .services-grid,.pricing-grid,.testi-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .process-grid::before{display:none}
+  .p-card.feat{transform:none}
+  .f-row{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-metrics{flex-direction:column}
+  .metric{border-right:none;border-bottom:1px solid var(--glass-border)}
+  .metric:last-child{border-bottom:none}
+  footer{flex-direction:column;text-align:center}
+  .f-links{justify-content:center;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- BG LAYERS -->
+<canvas id="stars"></canvas>
+<div class="grid-overlay"></div>
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="novu-logo-official.png" alt="Novu Media Co." style="height:42px;width:auto;display:block;"></a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-scan"></div>
+  <div class="hero-badge"><span class="badge-dot"></span>Cambridge & Waterloo Region, Ontario — Est. 2026</div>
+  <h1 class="hero-title">
+    <span class="line1">We Don't Just Manage</span>
+    <span class="line2"><span class="glitch" data-text="Your Social Media.">Your Social Media.</span></span>
+  </h1>
+  <div class="typewriter-wrap">
+    <span class="typewriter-prefix">// We build </span><span id="tw"></span>
+  </div>
+  <p class="hero-sub">
+    Novu Media Co. is a full-service digital marketing agency for small businesses ready to dominate online — through strategy, content, ads, and relentless execution.
+  </p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-neon-solid">Book Free Discovery Call</a>
+    <a href="#pricing" class="btn-neon">View Packages</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric"><span class="metric-val">6+</span><span class="metric-label">Platforms</span></div>
+    <div class="metric"><span class="metric-val">3</span><span class="metric-label">Packages</span></div>
+    <div class="metric"><span class="metric-val">30</span><span class="metric-label">Day Plans</span></div>
+    <div class="metric"><span class="metric-val">100%</span><span class="metric-label">Local Focus</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-terminal reveal">
+      <div class="terminal-bar">
+        <span class="t-dot r"></span><span class="t-dot y"></span><span class="t-dot g"></span>
+        <span class="terminal-title">novu_media_co — system.sh</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-prompt">$ </span><span class="t-cmd">novu --status</span></div>
+        <div class="t-out">✓ Agency: ONLINE</div>
+        <div class="t-out">✓ Location: Cambridge, Ontario</div>
+        <div class="t-out">✓ Status: Accepting Clients</div>
+        <br>
+        <div><span class="t-prompt">$ </span><span class="t-cmd">novu --services</span></div>
+        <div class="t-out">→ Social Media Management</div>
+        <div class="t-out">→ Content Creation</div>
+        <div class="t-out">→ Paid Advertising (Meta + Google)</div>
+        <div class="t-out">→ Brand Strategy & Audit</div>
+        <div class="t-out">→ Reputation Management</div>
+        <div class="t-out">→ Email & Lead Generation</div>
+        <br>
+        <div><span class="t-prompt">$ </span><span class="t-cmd">novu --promise</span></div>
+        <div class="t-out">"Results-first. Always."</div>
+        <div class="t-out dim">— Novu Media Co., 2026</div>
+        <br>
+        <div><span class="t-prompt">$ </span><span class="t-cursor"></span></div>
+      </div>
+    </div>
+    <div class="about-content reveal">
+      <div class="s-label">About Novu Media Co.</div>
+      <div class="cyan-line"></div>
+      <h2 class="s-title">Built for Businesses Ready to Be Seen</h2>
+      <p class="s-sub" style="margin-bottom:1.2rem">Novu Media Co. is a Cambridge, Ontario digital marketing agency giving small businesses the same firepower as the big brands — without the big agency price tag.</p>
+      <p class="s-sub" style="margin-bottom:1.2rem">We combine <strong style="color:#fff">content strategy, community management, paid advertising,</strong> and <strong style="color:#fff">brand storytelling</strong> into one system designed to grow your audience, generate leads, and convert followers into customers.</p>
+      <p class="s-sub">Strategy-first. Data-driven. Locally focused. Results obsessed.</p>
+      <div class="about-tags">
+        <span class="a-tag">No Fluff</span>
+        <span class="a-tag">Real Numbers</span>
+        <span class="a-tag">Local Experts</span>
+        <span class="a-tag">No Lock-In</span>
+        <span class="a-tag">1 Dedicated Manager</span>
+        <span class="a-tag">30-Day Action Plans</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="s-head c">
+    <div class="s-label">What We Do</div>
+    <div class="cyan-line c"></div>
+    <h2 class="s-title">Full-Service Digital Marketing</h2>
+    <p class="s-sub">Everything your business needs to dominate online — under one roof.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01 / CORE SERVICE</div>
+      <span class="svc-icon">📱</span>
+      <div class="svc-title">Social Media Management</div>
+      <div class="svc-desc">We run your Instagram, Facebook, TikTok and LinkedIn end to end — content calendar, daily posting, community engagement and growth strategy.</div>
+      <div class="svc-tags"><span class="stag">Instagram</span><span class="stag">TikTok</span><span class="stag">Facebook</span><span class="stag">LinkedIn</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02 / CORE SERVICE</div>
+      <span class="svc-icon">🎬</span>
+      <div class="svc-title">Content Creation</div>
+      <div class="svc-desc">Scroll-stopping Reels, engaging carousels, punchy captions and full video scripts crafted to your brand voice and audience.</div>
+      <div class="svc-tags"><span class="stag">Reels</span><span class="stag">Carousels</span><span class="stag">Scripts</span><span class="stag">Captions</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03 / GROWTH SERVICE</div>
+      <span class="svc-icon">🎯</span>
+      <div class="svc-title">Paid Advertising</div>
+      <div class="svc-desc">Targeted Meta and Google Ads campaigns built to generate leads and sales — not just impressions. Every dollar tracked and optimised.</div>
+      <div class="svc-tags"><span class="stag">Meta Ads</span><span class="stag">Google Ads</span><span class="stag">Retargeting</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">04 / STRATEGY</div>
+      <span class="svc-icon">🔍</span>
+      <div class="svc-title">Brand Strategy & Audit</div>
+      <div class="svc-desc">Full SWOT analysis of your digital presence, competitor research and a custom 30-60-90 day growth roadmap delivered in 7 days.</div>
+      <div class="svc-tags"><span class="stag">SWOT</span><span class="stag">Competitor Intel</span><span class="stag">Roadmap</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">05 / REPUTATION</div>
+      <span class="svc-icon">⭐</span>
+      <div class="svc-title">Reputation Management</div>
+      <div class="svc-desc">Google review campaigns, response management and brand monitoring to protect and elevate your online reputation at scale.</div>
+      <div class="svc-tags"><span class="stag">Google Reviews</span><span class="stag">Responses</span><span class="stag">Monitoring</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">06 / REVENUE</div>
+      <span class="svc-icon">📧</span>
+      <div class="svc-title">Email & Lead Generation</div>
+      <div class="svc-desc">Turn followers into subscribers, subscribers into customers. Email list building, lead magnets and automated nurture sequences.</div>
+      <div class="svc-tags"><span class="stag">Email</span><span class="stag">Lead Magnets</span><span class="stag">Automation</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="s-head c">
+    <div class="s-label">Investment</div>
+    <div class="cyan-line c"></div>
+    <h2 class="s-title">Transparent Pricing</h2>
+    <p class="s-sub">No hidden fees. No confusing contracts. Results-focused packages built for small business budgets.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="p-card reveal">
+      <div class="p-tier">Starter</div>
+      <div class="p-desc">Perfect for businesses just getting started with social media.</div>
+      <div class="p-price">
+        <div><span class="p-cur">$</span><span class="p-amt">499</span></div>
+        <div class="p-per">per month · CAD · No lock-in contract</div>
+      </div>
+      <ul class="p-features">
+        <li><span class="p-check">◆</span>2 platforms managed (IG + Facebook)</li>
+        <li><span class="p-check">◆</span>12 posts per month (3/week)</li>
+        <li><span class="p-check">◆</span>4 Reels/short videos per month</li>
+        <li><span class="p-check">◆</span>Custom caption & hashtag strategy</li>
+        <li><span class="p-check">◆</span>Monthly performance report</li>
+        <li><span class="p-check">◆</span>Community engagement</li>
+        <li><span class="p-check">◆</span>Google Business Profile setup</li>
+      </ul>
+      <a href="#contact" class="p-btn">Get Started</a>
+    </div>
+    <div class="p-card feat reveal">
+      <div class="feat-badge">★ Most Popular</div>
+      <div class="p-tier">Growth</div>
+      <div class="p-desc">For businesses serious about scaling — more content, more platforms, ads included.</div>
+      <div class="p-price">
+        <div><span class="p-cur">$</span><span class="p-amt">899</span></div>
+        <div class="p-per">per month · CAD · 3-month commitment</div>
+      </div>
+      <ul class="p-features">
+        <li><span class="p-check">◆</span>4 platforms (IG, FB, TikTok, LinkedIn)</li>
+        <li><span class="p-check">◆</span>20 posts per month (5/week)</li>
+        <li><span class="p-check">◆</span>8 Reels/TikTok videos per month</li>
+        <li><span class="p-check">◆</span>Custom content strategy & calendar</li>
+        <li><span class="p-check">◆</span>$200 Meta Ads management (spend extra)</li>
+        <li><span class="p-check">◆</span>Influencer outreach (2 collabs/month)</li>
+        <li><span class="p-check">◆</span>Bi-weekly performance reports</li>
+        <li><span class="p-check">◆</span>Email list building setup</li>
+        <li><span class="p-check">◆</span>Reputation management</li>
+        <li><span class="p-check">◆</span>Dedicated account manager</li>
+      </ul>
+      <a href="#contact" class="p-btn solid">Get Started</a>
+    </div>
+    <div class="p-card reveal">
+      <div class="p-tier">Premium</div>
+      <div class="p-desc">Full-service domination for businesses ready to own their market.</div>
+      <div class="p-price">
+        <div><span class="p-cur">$</span><span class="p-amt">1,499</span></div>
+        <div class="p-per">per month · CAD · 3-month commitment</div>
+      </div>
+      <ul class="p-features">
+        <li><span class="p-check">◆</span>All 6 platforms managed</li>
+        <li><span class="p-check">◆</span>30+ posts per month (daily)</li>
+        <li><span class="p-check">◆</span>12+ Reels/TikTok videos per month</li>
+        <li><span class="p-check">◆</span>Full brand strategy & competitor analysis</li>
+        <li><span class="p-check">◆</span>$500 Meta + Google Ads management</li>
+        <li><span class="p-check">◆</span>Full email marketing automation</li>
+        <li><span class="p-check">◆</span>Influencer campaign management</li>
+        <li><span class="p-check">◆</span>Weekly reports + KPI dashboard</li>
+        <li><span class="p-check">◆</span>Priority support (24hr response)</li>
+        <li><span class="p-check">◆</span>Quarterly growth strategy session</li>
+      </ul>
+      <a href="#contact" class="p-btn">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="s-head c">
+    <div class="s-label">How It Works</div>
+    <div class="cyan-line c"></div>
+    <h2 class="s-title">Our 4-Step Growth Process</h2>
+    <p class="s-sub">From first call to first results — here's exactly what working with us looks like.</p>
+  </div>
+  <div class="process-grid">
+    <div class="proc-step reveal"><div class="proc-num">01</div><div class="proc-title">Discovery Call</div><div class="proc-desc">Free 30-min strategy call. We learn your business, goals, and challenges.</div></div>
+    <div class="proc-step reveal"><div class="proc-num">02</div><div class="proc-title">Audit & Strategy</div><div class="proc-desc">Full digital audit, competitor analysis and custom 30-60-90 day growth plan.</div></div>
+    <div class="proc-step reveal"><div class="proc-num">03</div><div class="proc-title">Launch & Execute</div><div class="proc-desc">Content live, accounts optimised and campaigns running within 7 days.</div></div>
+    <div class="proc-step reveal"><div class="proc-num">04</div><div class="proc-title">Report & Scale</div><div class="proc-desc">Monthly reporting, performance reviews and continuous optimisation.</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <div class="s-head c">
+    <div class="s-label">Client Results</div>
+    <div class="cyan-line c"></div>
+    <h2 class="s-title">What Our Clients Say</h2>
+    <p class="s-sub">Real results for real local businesses across the Waterloo Region.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="t-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"Novu Media transformed our Instagram from a dead account to our #1 source of new customers. 3x the followers and the phone was ringing every day within 60 days."</p>
+      <div class="t-author"><div class="t-av">JM</div><div><div class="t-name">James M.</div><div class="t-biz">Restaurant Owner, Cambridge ON</div></div></div>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"I was skeptical about social media for my trades business. Novu put together a strategy that made total sense and leads started coming within the first month."</p>
+      <div class="t-author"><div class="t-av">SR</div><div><div class="t-name">Sarah R.</div><div class="t-biz">Home Services, Kitchener ON</div></div></div>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"They don't waste your money on vanity metrics — they focus on what actually moves the needle. Game changer for our retail brand."</p>
+      <div class="t-author"><div class="t-av">DK</div><div><div class="t-name">David K.</div><div class="t-biz">Retail Brand, Waterloo ON</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section id="cta-strip">
+  <h2 class="cta-title">Ready to Grow Your Business<br>with <span style="color:var(--cyan);text-shadow:0 0 30px rgba(0,245,255,0.5)">Novu Media Co.?</span></h2>
+  <p class="cta-sub">Book a free 30-minute discovery call. No pressure, no commitment — just clarity on what's possible.</p>
+  <a href="#contact" class="btn-neon-solid" style="font-size:1rem;padding:1rem 2.5rem;letter-spacing:2px">BOOK YOUR FREE CALL →</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="c-info reveal">
+      <div class="s-label">Contact Us</div>
+      <div class="cyan-line"></div>
+      <h2 class="s-title">Let's Build Something</h2>
+      <p>Fill out the form and we'll respond within 24 hours to schedule your free discovery call.</p>
+      <div class="c-detail"><div class="c-det-icon">📍</div>Cambridge & Waterloo Region, Ontario</div>
+      <div class="c-detail"><div class="c-det-icon">📧</div>admin@novumediaco.ca</div>
+      <div class="c-detail"><div class="c-det-icon">⚡</div>Response within 24 hours</div>
+      <div class="c-detail"><div class="c-det-icon">📞</div>Free 30-min discovery call included</div>
+    </div>
+    <div class="c-form reveal">
+      <form onsubmit="handleSubmit(event)">
+        <div class="f-row">
+          <div class="f-group"><label>First Name</label><input type="text" placeholder="John" required></div>
+          <div class="f-group"><label>Last Name</label><input type="text" placeholder="Smith" required></div>
+        </div>
+        <div class="f-group"><label>Business Name</label><input type="text" placeholder="Your Business Name" required></div>
+        <div class="f-group"><label>Email Address</label><input type="email" placeholder="you@yourbusiness.com" required></div>
+        <div class="f-group"><label>Phone Number</label><input type="tel" placeholder="(519) 000-0000"></div>
+        <div class="f-group">
+          <label>Package Interest</label>
+          <select>
+            <option value="">— Select a Package —</option>
+            <option>Starter — $499/mo</option>
+            <option>Growth — $899/mo</option>
+            <option>Premium — $1,499/mo</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="f-group"><label>Tell Us About Your Business</label><textarea placeholder="What does your business do? What are your main goals?"></textarea></div>
+        <button type="submit" class="f-submit">SEND MESSAGE & BOOK MY CALL →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo"><img src="novu-logo-official.png" alt="Novu Media Co." style="height:26px;width:auto;display:block;"></div>
+  <div class="f-links">
+    <a href="#about">About</a><a href="#services">Services</a>
+    <a href="#pricing">Pricing</a><a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="f-copy">© 2026 Novu Media Co. · Cambridge, Ontario</div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+function animRing(){
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}animRing();
+document.querySelectorAll('a,button,.svc-card,.p-card,.t-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{ring.style.width='50px';ring.style.height='50px'});
+  el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px'});
+});
+
+// ── PARTICLES ──
+const canvas=document.getElementById('stars');
+const ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth;
+let H=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
+
+const STAR_COUNT=180;
+const stars=Array.from({length:STAR_COUNT},()=>({
+  x:Math.random()*W,y:Math.random()*H,
+  r:Math.random()*1.5+0.2,
+  speed:Math.random()*0.3+0.05,
+  opacity:Math.random()*0.7+0.1,
+  flicker:Math.random()*Math.PI*2
+}));
+
+// Connection lines
+function drawConnections(){
+  for(let i=0;i<stars.length;i++){
+    for(let j=i+1;j<stars.length;j++){
+      const dx=stars[i].x-stars[j].x;
+      const dy=stars[i].y-stars[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){
+        ctx.strokeStyle=`rgba(0,245,255,${(1-d/120)*0.12})`;
+        ctx.lineWidth=0.5;
+        ctx.beginPath();
+        ctx.moveTo(stars[i].x,stars[i].y);
+        ctx.lineTo(stars[j].x,stars[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+let t=0;
+function animStars(){
+  ctx.clearRect(0,0,W,H);
+  t+=0.01;
+  stars.forEach(s=>{
+    s.y-=s.speed;
+    if(s.y<0){s.y=H;s.x=Math.random()*W;}
+    const flicker=0.7+0.3*Math.sin(s.flicker+t*2);
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,245,255,${s.opacity*flicker})`;
+    ctx.fill();
+    // glow
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r*3,0,Math.PI*2);
+    const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.r*3);
+    g.addColorStop(0,`rgba(0,245,255,${0.08*flicker})`);
+    g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.fill();
+  });
+  drawConnections();
+  requestAnimationFrame(animStars);
+}animStars();
+
+// ── TYPEWRITER ──
+const tw=document.getElementById('tw');
+const words=['brands that dominate.','audiences that convert.','content that connects.','results that matter.','growth that lasts.'];
+let wi=0,ci=0,deleting=false;
+function type(){
+  const w=words[wi];
+  if(!deleting){
+    tw.textContent=w.slice(0,ci+1);ci++;
+    if(ci===w.length){setTimeout(()=>{deleting=true;type();},2200);return;}
+  }else{
+    tw.textContent=w.slice(0,ci-1);ci--;
+    if(ci===0){deleting=false;wi=(wi+1)%words.length;}
+  }
+  setTimeout(type,deleting?50:100);
+}
+setTimeout(type,1200);
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── FORM ──
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.f-submit');
+  btn.textContent='✓ MESSAGE SENT — WE\'LL BE IN TOUCH WITHIN 24 HOURS';
+  btn.style.background='#00C86A';btn.style.boxShadow='0 0 30px rgba(0,200,106,0.4)';
+  btn.disabled=true;
+}
+
+// ── NAV HIGHLIGHT ──
+const secs=document.querySelectorAll('section[id]');
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur2='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur2=s.id;});
+  navAs.forEach(a=>{
+    const match=a.getAttribute('href')==='#'+cur2;
+    a.style.color=match?'var(--cyan)':'';
+    a.style.textShadow=match?'0 0 10px var(--cyan)':'';
+  });
+});
+</script>
+</body>
+</html>

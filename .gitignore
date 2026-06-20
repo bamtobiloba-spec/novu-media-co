@@ -1,0 +1,12 @@
+# Secrets - never commit these
+agent/.env
+
+# Archives
+*.zip
+
+# Temp files
+.fuse_hidden*
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
